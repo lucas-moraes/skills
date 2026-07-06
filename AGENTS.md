@@ -16,7 +16,9 @@ Edit files under `skills/` only. Never duplicate content into `.agents/skills/`.
 
 ## `npx skills` gotcha
 
-`npx skills add . --list` returns "No skills found" for this repo even with a valid `skills/<name>/SKILL.md`. Reproduced with skills@1.5.14; root cause not identified. To verify discoverability: clone to a fresh path and run `npx skills add /tmp/x --list`, or push to GitHub and run `npx skills add <owner>/<repo> --list`. Do not "fix" by moving skills into `.agents/skills/` as real files — that breaks opencode source-discovery (below).
+`npx skills add . --list` returns "No skills found" when a `SKILL.md` has invalid YAML frontmatter — most commonly an unquoted `description` containing `: ` (colon+space). The CLI does not surface the parse error; it silently reports "No skills found". To debug: validate the frontmatter with a YAML parser before assuming a discovery/path issue.
+
+Do not "fix" by moving skills into `.agents/skills/` as real files — that breaks opencode source-discovery (below).
 
 ## Discovery paths (do not contradict)
 
@@ -28,7 +30,7 @@ opencode auto-discovers `SKILL.md` at: `.opencode/skills/`, `.claude/skills/`, `
 
 Frontmatter YAML:
 - `name` — required. Lowercase kebab-case, regex `^[a-z0-9]+(-[a-z0-9]+)*$`, 1–64 chars, **must equal the directory name**. Renaming a skill = renaming the folder.
-- `description` — required. 1–1024 chars. Single paragraph, not bulleted "Use when…".
+- `description` — required. 1–1024 chars. Single paragraph, not bulleted "Use when…". **Must be YAML-quoted (single or double quotes) if it contains `: ` (colon+space)** — plain scalars with `: ` are parsed as mappings and the skill is silently rejected by `npx skills`.
 - Optional: `metadata.internal: true` hides from listing unless `INSTALL_INTERNAL_SKILLS=1`.
 
 Do NOT add `license`, `compatibility`, or other fields — minimal frontmatter is the house style; extra fields are ignored by `npx skills` and add nothing.
