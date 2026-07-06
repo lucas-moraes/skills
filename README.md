@@ -7,18 +7,22 @@ Reusable coding-agent skills for opencode / Claude Code.
 | Skill | Description |
 |---|---|
 | [`commit-conventional`](skills/commit-conventional/SKILL.md) | Enforce Conventional Commits on every commit — inspect staged diff, propose type(scope): message, split mixed-purpose changes. |
+| [`skill-scaffold`](skills/skill-scaffold/SKILL.md) | Scaffold a new skill — creates SKILL.md with valid frontmatter, registers in plugin.json, updates README. Stops for review before committing. |
 
 ## Install
 
 ```bash
 # Install to opencode (project-local)
 npx skills add your-username/skills --skill commit-conventional -a opencode
+npx skills add your-username/skills --skill skill-scaffold -a opencode
 
 # Install globally (available in any project)
 npx skills add your-username/skills --skill commit-conventional -a opencode -g
+npx skills add your-username/skills --skill skill-scaffold -a opencode -g
 
 # Install to all detected agents
 npx skills add your-username/skills --skill commit-conventional --all
+npx skills add your-username/skills --skill skill-scaffold --all
 ```
 
 Or copy `skills/commit-conventional/` into your project's `.agents/skills/` or `~/.config/opencode/skills/`.
