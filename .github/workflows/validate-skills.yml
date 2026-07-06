@@ -1,0 +1,71 @@
+name: validate-skills
+
+on:
+  pull_request:
+    paths:
+      - 'skills/**/SKILL.md'
+      - '.claude-plugin/plugin.json'
+      - 'skills.sh.json'
+  push:
+    branches: [main]
+    paths:
+      - 'skills/**/SKILL.md'
+
+jobs:
+  discover:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+      - name: npx skills discovery
+        run: |
+          npx skills@1.5.14 add . --list > out.txt 2>&1 || true
+          cat out.txt
+          if grep -q "No skills found" out.txt; then
+            echo "::error::npx skills returned 'No skills found' — a SKILL.md has invalid frontmatter (likely unquoted description with ': ')."
+            exit 1
+          fi
+      - name: frontmatter yaml check
+        run: |
+          node -e '
+            const fs=require("fs"),path=require("path");
+            function walk(dir){
+              let r=[];
+              for(const e of fs.readdirSync(dir,{withFileTypes:true})){
+                const p=path.join(dir,e.name);
+                if(e.isDirectory()) r=r.concat(walk(p));
+                else if(e.name==="SKILL.md") r.push(p);
+              }
+              return r;
+            }
+            let bad=0;
+            for(const f of walk("skills")){
+              const c=fs.readFileSync(f,"utf-8"),parts=c.split("---");
+              if(parts.length<3){
+                console.error("no frontmatter:",f);
+                bad++; continue;
+              }
+              const fm=parts[1];
+              let hasName=false,hasDesc=false;
+              for(const line of fm.trim().split("\n")){
+                const m=line.match(/^(\w+):\s(.*)$/);
+                if(!m) continue;
+                if(m[1]==="name") hasName=true;
+                if(m[1]==="description"){
+                  hasDesc=true;
+                  const v=m[2];
+                  if(v.includes(": ")&&!/^["\x27]/.test(v)){
+                    console.error("unquoted \": \" in description:",f);
+                    bad++;
+                  }
+                }
+              }
+              if(!hasName||!hasDesc){
+                console.error("missing name/description:",f);
+                bad++;
+              }
+            }
+            if(bad) process.exit(1);
+          '
