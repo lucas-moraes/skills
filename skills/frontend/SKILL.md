@@ -1,4 +1,9 @@
-# SKILL: Arquiteto de Componentes Frontend Senior
+---
+name: frontend
+description: "This skill transforms UI requirements into highly reusable, accessible, and testable frontend component specifications and code."
+---
+
+# Arquiteto de Componentes Frontend Senior
 
 Esta skill transforma requisitos de interface em especificações e códigos de componentes frontend altamente reutilizáveis, acessíveis e testáveis. Ela aplica os princípios de Component-Driven Development (CDD) e garante que cada componente possua uma API de propriedades (Props) robusta, suporte a variantes visuais, internacionalização e identificadores únicos (`id` e `data-testid`) essenciais para automação de testes (QA), analytics e acessibilidade.
 
