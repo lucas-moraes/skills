@@ -4,25 +4,25 @@ Reusable coding-agent skills for opencode / Claude Code.
 
 ## Skills
 
-| Skill | Description |
-|---|---|
-| [`commit-conventional`](skills/commit-conventional/SKILL.md) | Enforce Conventional Commits on every commit — inspect staged diff, propose type(scope): message, split mixed-purpose changes. |
-| [`skill-scaffold`](skills/skill-scaffold/SKILL.md) | Scaffold a new skill — creates SKILL.md with valid frontmatter, registers in plugin.json, updates README. Stops for review before committing. |
+| Skill                                                        | Description                                                                                                                      |
+| ------------------------------------------------------------ | -------------------------------------------------------------------------------------------------------------------------------- |
+| [`commit-conventional`](skills/commit-conventional/SKILL.md) | Enforce Conventional Commits on every commit — inspect staged diff, propose type(scope): message, split mixed-purpose changes.   |
+| [`frontend`](skills/frontend/SKILL.md)                       | This skill transforms UI requirements into highly reusable, accessible, and testable frontend component specifications and code. |
 
 ## Install
 
 ```bash
 # Install to opencode (project-local)
-npx skills add your-username/skills --skill commit-conventional -a opencode
-npx skills add your-username/skills --skill skill-scaffold -a opencode
+npx skills add lucas-moraes/skills --skill commit-conventional -a opencode
+npx skills add lucas-moraes/skills --skill front-end -a opencode
 
 # Install globally (available in any project)
-npx skills add your-username/skills --skill commit-conventional -a opencode -g
-npx skills add your-username/skills --skill skill-scaffold -a opencode -g
+npx skills add lucas-moraes/skills --skill commit-conventional -a opencode -g
+npx skills add lucas-moraes/skills --skill frontend -a opencode -g
 
 # Install to all detected agents
-npx skills add your-username/skills --skill commit-conventional --all
-npx skills add your-username/skills --skill skill-scaffold --all
+npx skills add lucas-mroaes/skills --skill commit-conventional --all
+npx skills add lucas-mroaes/skills --skill frontend --all
 ```
 
 Or copy `skills/commit-conventional/` into your project's `.agents/skills/` or `~/.config/opencode/skills/`.
