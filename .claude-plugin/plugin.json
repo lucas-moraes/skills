@@ -1,0 +1,6 @@
+{
+  "name": "skills",
+  "skills": [
+    "./skills/commit-conventional"
+  ]
+}
