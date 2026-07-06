@@ -1,0 +1,11 @@
+{
+  "version": 1,
+  "skills": {
+    "commit-conventional": {
+      "source": "lucas-moraes/skills",
+      "sourceType": "github",
+      "skillPath": "skills/commit-conventional/SKILL.md",
+      "computedHash": "78ffe0e7013ab0e076c0ea0b4d0b9bd09a3de912daea641a5ea32fcace7b388a"
+    }
+  }
+}
