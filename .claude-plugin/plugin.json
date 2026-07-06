@@ -1,7 +1,4 @@
 {
   "name": "skills",
-  "skills": [
-    "./skills/commit-conventional",
-    "./skills/skill-scaffold"
-  ]
+  "skills": ["./skills/commit-conventional"]
 }

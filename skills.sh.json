@@ -2,6 +2,7 @@
   "$schema": "https://skills.sh/schemas/skills.sh.schema.json",
   "groupings": [
     { "title": "Conventions", "skills": ["commit-conventional"] },
+    { "title": "Frontend", "skills": ["frontend"] },
     { "title": "Tooling", "skills": ["skill-scaffold"] }
   ]
 }
