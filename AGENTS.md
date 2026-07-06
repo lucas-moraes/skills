@@ -42,9 +42,14 @@ One `SKILL.md` per skill. Section order matches `skills/commit-conventional/SKIL
 
 Keep it a reference card, not a tutorial. Put examples in `Examples`; never inline them in `Workflow`.
 
+## Automations
+
+- `skill-scaffold` skill (in this repo) — scaffolds new skills end-to-end; stops before commit. Invoke by asking the agent to "add a skill called X".
+- `.github/workflows/validate-skills.yml` — runs `npx skills add . --list` and a frontmatter YAML check on every PR touching `skills/**`. Fails if any `SKILL.md` has invalid frontmatter (e.g. unquoted `description` containing `: `). This is the regression guard for the YAML quoting bug.
+
 ## Committing in this repo
 
-The repo's only skill is `commit-conventional` — apply it to this repo's own commits. `fix:` / `feat:` / `docs:` / `chore:` only. Subject ≤72 chars, imperative, lowercase, no trailing period, no agent attribution footers.
+Apply `commit-conventional` to this repo's own commits. `fix:` / `feat:` / `docs:` / `chore:` only. Subject ≤72 chars, imperative, lowercase, no trailing period, no agent attribution footers.
 
 ## Known drift
 
