@@ -1,6 +1,6 @@
 ---
 name: commit-conventional
-description: Enforce Conventional Commits on every commit. Inspects staged diff, proposes a type(scope): message, splits mixed-purpose changes, and validates the final message before committing. Use when the user says "commit" or asks for a commit message.
+description: 'Enforce Conventional Commits on every commit. Inspects staged diff, proposes a type(scope): message, splits mixed-purpose changes, and validates the final message before committing. Use when the user says "commit" or asks for a commit message.'
 ---
 
 # Commit Conventional
