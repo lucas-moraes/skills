@@ -3,6 +3,6 @@
   "groupings": [
     { "title": "Conventions", "skills": ["commit-conventional"] },
     { "title": "Frontend", "skills": ["frontend"] },
-    { "title": "Tooling", "skills": ["skill-scaffold"] }
+    { "title": "Backend-ts", "skills": ["backend-ts"] }
   ]
 }

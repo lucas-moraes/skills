@@ -8,21 +8,25 @@ Reusable coding-agent skills for opencode / Claude Code.
 | ------------------------------------------------------------ | -------------------------------------------------------------------------------------------------------------------------------- |
 | [`commit-conventional`](skills/commit-conventional/SKILL.md) | Enforce Conventional Commits on every commit — inspect staged diff, propose type(scope): message, split mixed-purpose changes.   |
 | [`frontend`](skills/frontend/SKILL.md)                       | This skill transforms UI requirements into highly reusable, accessible, and testable frontend component specifications and code. |
+| [`backendend`](skills/backend-ts/SKILL.md)                   | Enforce advanced functional programming paradigms in TypeScript backend development.                                             |
 
 ## Install
 
 ```bash
 # Install to opencode (project-local)
 npx skills add lucas-moraes/skills --skill commit-conventional -a opencode
-npx skills add lucas-moraes/skills --skill front-end -a opencode
+npx skills add lucas-moraes/skills --skill frontend -a opencode
+npx skills add lucas-moraes/skills --skill backend-ts -a opencode
 
 # Install globally (available in any project)
 npx skills add lucas-moraes/skills --skill commit-conventional -a opencode -g
 npx skills add lucas-moraes/skills --skill frontend -a opencode -g
+npx skills add lucas-moraes/skills --skill backend-ts -a opencode -g
 
 # Install to all detected agents
 npx skills add lucas-mroaes/skills --skill commit-conventional --all
 npx skills add lucas-mroaes/skills --skill frontend --all
+npx skills add lucas-mroaes/skills --skill backend-ts --all
 ```
 
 Or copy `skills/commit-conventional/` into your project's `.agents/skills/` or `~/.config/opencode/skills/`.
