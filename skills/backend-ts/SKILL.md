@@ -1,5 +1,5 @@
 ---
-name: functional-backend-architect
+name: backend-ts
 description: "Enforce advanced functional programming paradigms in TypeScript backend development. Designs immutable data pipelines, implements dependency injection via currying, handles errors predictably with the Result monad, and enforces strict test isolation using Jest inside the root __tests__ folder."
 ---
 
