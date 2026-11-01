@@ -9,6 +9,7 @@ Reusable coding-agent skills for opencode / Claude Code.
 | [`commit-conventional`](skills/commit-conventional/SKILL.md) | Enforce Conventional Commits on every commit — inspect staged diff, propose type(scope): message, split mixed-purpose changes.   |
 | [`frontend`](skills/frontend/SKILL.md)                       | This skill transforms UI requirements into highly reusable, accessible, and testable frontend component specifications and code. |
 | [`backend-ts`](skills/backend-ts/SKILL.md)                      | Enforce advanced functional programming paradigms in TypeScript backend development.                                             |
+| [`economist-advisor`](skills/economist-advisor/SKILL.md) | Atua como economista consultor: pesquisa notícias e indicadores econômicos na web e traduz o cenário macro em orientação prática de finanças pessoais, com disclaimer. |
 
 ## Install
 
@@ -17,6 +18,7 @@ Reusable coding-agent skills for opencode / Claude Code.
 npx skills add lucas-moraes/skills --skill commit-conventional -a opencode
 npx skills add lucas-moraes/skills --skill frontend -a opencode
 npx skills add lucas-moraes/skills --skill backend-ts -a opencode
+npx skills add lucas-moraes/skills --skill economist-advisor -a opencode
 
 # Install globally (available in any project)
 npx skills add lucas-moraes/skills --skill commit-conventional -a opencode -g

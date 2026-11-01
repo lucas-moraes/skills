@@ -1,4 +1,9 @@
 {
   "name": "skills",
-  "skills": ["./skills/commit-conventional"]
+  "skills": [
+    "./skills/commit-conventional",
+    "./skills/frontend",
+    "./skills/backend-ts",
+    "./skills/economist-advisor"
+  ]
 }
